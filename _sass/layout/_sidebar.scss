@@ -262,3 +262,30 @@
     }
   }
 }
+
+/*
+   Affiliation logos (UCL / CMU / KTH)
+   ========================================================================== */
+
+.author__affiliations {
+  margin-top: 1em;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  justify-content: flex-start;
+
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    padding: 4px;
+    box-sizing: border-box;
+  }
+
+  @include breakpoint($large) {
+    justify-content: flex-start;
+  }
+}

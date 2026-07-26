@@ -8,25 +8,44 @@ redirect_from:
 
 <style>
 body {
-  font-size: 0.95em;
+  font-size: 0.9em;
+}
+.funding {
+  background: #fdeaea;
+  border-left: 4px solid #c0392b;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 1.2em 0;
+}
+.funding p { margin: 0; }
+.news { font-size: 0.9em; }
+@media (prefers-color-scheme: dark) {
+  .funding { background: #2b1a1a; border-left-color: #e06666; }
 }
 </style>
 
-This is Ye. Welcome to my page.
+This is Ye, welcome to my page.
 I am a Lecturer (aka. Assistant Professor) in the Department of Computer Science at University College London.
-Previously, I worked as a Postdoctoral Researcher at Carnegie Mellon University (2023 to 2025) with [Prof. Claire Le Goues](https://clairelegoues.com/).
-I obtained my PhD from KTH Royal Institute of Technology in February 2023, where I was fortunate to be supervised by [Prof. Martin Monperrus](https://www.monperrus.net/martin/) and [Prof. Benoit Baudry](https://softwarediversity.eu/).
+My research builds the next generation of **coding agents** that work like software engineers inside a real command-line environment, reasoning across an entire codebase and its tools to tackle tasks such as issue resolution, agent failure repair, and more. My group focuses on CLI coding agents: we design the agent harnesses they operate in, train them in realistic terminal-world environments, and study why they fail and how they can repair themselves. What I care about most is making these agents **secure and cost-efficient**, so that they are actually affordable in practice. We also maintain [Awesome Code Agents](https://github.com/EuniAI/awesome-code-agents), a curated list of cutting-edge coding-agent projects and research.
 
-My research focuses on developing the next generation of code agents to automate software engineering tasks. I work on codebase context retrieval and long-term memory for code agents.
-Specifically, my research interests are:
-- Improving codebase context retrieval precision through graph–based reasoning.
-- Building intelligent code agents for issue resolution, environment setup, terminal tasks, and reproduction test generation.
-- Model–agent and multi-agent orchestration.
+Prior to joining UCL, I worked as a Postdoctoral Researcher at Carnegie Mellon University with Prof. Claire Le Goues.
+I obtained my PhD from KTH Royal Institute of Technology, where I was fortunate to be supervised by Prof. Martin Monperrus and Prof. Benoit Baudry. I received my bachelor's degree from Sichuan University.
 
+**Let's connect:** I'm always happy to talk research, swap ideas, or just say hi — whether we share interests or come from very different fields. Reach me at [he.ye@ucl.ac.uk](mailto:he.ye@ucl.ac.uk).
 
-Beyond academia, I am the co-founder of [EuniAI](https://euni.ai/), 
-a UCL spinout dedicated to transforming research into real-world solutions and providing a showcase platform for our research outcomes.
+<div class="funding" markdown="1">
+**Funding:** We greatly appreciate that our research is supported by Google, AWS, Mistral AI, and Delysium (Jerry Zhang) through computing credits and gift funding.
+</div>
 
-We are organizing the [LMPL@SPLASH 2025 workshop](https://conf.researchr.org/home/icfp-splash-2025/lmpl-2025) and the [APR@ICSE 2025 workshop](https://program-repair.org/workshop-2025/), we look forward to your submissions!
+## News
+
+<div class="news" markdown="1">
+- [July 2026] We are organizing the 7th APR workshop, co-located with ASE. Please consider submitting your work to [APR@ASE 2026](https://conf.researchr.org/home/ase-2026/apr-2026)!
+- [June 2026] Happy to receive the FSE 2026 Distinguished Reviewer Award.
+- [June 2026] Our paper "Agent-based Automated Remediation for Vulnerabilities in Maven Projects" is accepted to OOPSLA 2026. Congrats to Lyuye!
+- [March 2026] Our paper [ExecVerify](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K6V2VzsAAAAJ&cstart=20&pagesize=80&citation_for_view=K6V2VzsAAAAJ:Wp0gIr-vW9MC) is accepted to ACL 2026 (main). Congrats to Lingxiao!
+- [Nov 2025] Our scaffold Prometheus achieved TOP 1 🏆 by resolving 33.77% of issues on the AWS [SWE-PolyBench leaderboard](https://amazon-science.github.io/SWE-PolyBench/#verified). Check out our [experiment results](https://github.com/EuniAI/Polybench-experiment).
+- [Oct 2025] Our scaffold Prometheus achieved TOP 5 overall on the [SWE-bench Verified leaderboard](https://www.swebench.com/) 🎉! Check out our [project repository](https://github.com/EuniAI/Prometheus).
+</div>
 
 [//]: # (## Projects )

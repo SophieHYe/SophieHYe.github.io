@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default" # Currently available options are "default", "air"
-title                    : "He Ye (叶荷)"
+title                    : "He Ye"
 title_separator          : "-"
 name                     : &name "He Ye"
 description              : &description "He Ye — Lecturer (Assistant Professor) at UCL, building the next generation of code agents for software engineering."
@@ -22,8 +22,8 @@ repository               : "SophieHYe/SophieHYe.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
-  name             : "He Ye (叶荷)"
+  avatar           : "profileye.jpg"
+  name             : "He Ye"
   pronouns         : # example: "she/her"  
   bio              : "Assistant Professor at UCL"
   location         : "United Kingdom"
