@@ -40,12 +40,14 @@ I obtained my PhD from KTH Royal Institute of Technology, where I was fortunate 
 ## News
 
 <div class="news" markdown="1">
-- [July 2026] We are organizing the 7th APR workshop, co-located with ASE. Please consider submitting your work to [APR@ASE 2026](https://conf.researchr.org/home/ase-2026/apr-2026)!
-- [June 2026] Happy to receive the FSE 2026 Distinguished Reviewer Award.
-- [June 2026] Our paper "Agent-based Automated Remediation for Vulnerabilities in Maven Projects" is accepted to OOPSLA 2026. Congrats to Lyuye!
-- [March 2026] Our paper [ExecVerify](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K6V2VzsAAAAJ&cstart=20&pagesize=80&citation_for_view=K6V2VzsAAAAJ:Wp0gIr-vW9MC) is accepted to ACL 2026 (main). Congrats to Lingxiao!
-- [Nov 2025] Our scaffold Prometheus achieved TOP 1 🏆 by resolving 33.77% of issues on the AWS [SWE-PolyBench leaderboard](https://amazon-science.github.io/SWE-PolyBench/#verified). Check out our [experiment results](https://github.com/EuniAI/Polybench-experiment).
-- [Oct 2025] Our scaffold Prometheus achieved TOP 5 overall on the [SWE-bench Verified leaderboard](https://www.swebench.com/) 🎉! Check out our [project repository](https://github.com/EuniAI/Prometheus).
+- **2026.07**: 🤗 TerminalWorld dataset exceeded 10,000 downloads on HuggingFace!
+- **2026.06**: We are organizing the 7th APR workshop, co-located with ASE. Please consider submitting your work to [APR@ASE 2026](https://conf.researchr.org/home/ase-2026/apr-2026)!
+- **2026.06**: Happy to receive the FSE 2026 Distinguished Reviewer Award.
+- **2026.06**: Our paper "Agent-based Automated Remediation for Vulnerabilities in Maven Projects" is accepted to OOPSLA 2026. Congrats to Lyuye!
+- **2026.06**: 🎙️ TerminalWorld was featured on [Last Week in AI](https://lastweekin.ai/p/lwiai-podcast-246-gemini-35-omni) (ep. #246), a newsletter and podcast with 181k+ listeners.
+- **2026.03**: Our paper [ExecVerify](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=K6V2VzsAAAAJ&cstart=20&pagesize=80&citation_for_view=K6V2VzsAAAAJ:Wp0gIr-vW9MC) is accepted to ACL 2026 (main). Congrats to Lingxiao!
+- **2025.11**: Our scaffold Prometheus achieved TOP 1 🏆 by resolving 33.77% of issues on the AWS [SWE-PolyBench leaderboard](https://amazon-science.github.io/SWE-PolyBench/#verified). Check out our [experiment results](https://github.com/EuniAI/Polybench-experiment).
+- **2025.10**: Our scaffold Prometheus achieved TOP 5 overall on the [SWE-bench Verified leaderboard](https://www.swebench.com/) 🎉! Check out our [project repository](https://github.com/EuniAI/Prometheus).
 </div>
 
 [//]: # (## Projects )
