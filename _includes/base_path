@@ -1,5 +1,7 @@
-{% if site.url %}
-  {% assign base_path = site.url | append: site.baseurl %}
-{% else %}
-  {% assign base_path = site.github.url %}
-{% endif %}
+{% comment %}
+  Root-relative asset/link base so the site works under any scheme (http/https)
+  and domain — assets load from the same origin the page is served on.
+  (Previously used the absolute site.url, which broke styling whenever the
+  serving scheme/domain differed from url, e.g. during custom-domain setup.)
+{% endcomment %}
+{% assign base_path = site.baseurl %}
