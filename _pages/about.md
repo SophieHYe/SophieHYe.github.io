@@ -29,6 +29,7 @@ body {
 .project__fig img { width: 100%; border: 1px solid #e6e6e6; border-radius: 6px; }
 .project__title { font-weight: 700; }
 .project__authors { font-size: 0.9em; margin-top: 3px; }
+.project__authors a { color: inherit; text-decoration: none; }
 .project__venue { font-style: italic; font-size: 0.9em; margin-top: 2px; }
 .project__desc { font-size: 0.9em; margin-top: 6px; }
 .project__featured { font-size: 0.85em; margin-top: 8px; color: #555; }
@@ -116,9 +117,26 @@ I obtained my PhD from KTH Royal Institute of Technology, where I was fortunate 
     <div class="project__desc">ContextBench is a benchmark that evaluates how coding agents perform multi-file context retrieval across a repository; its novelty is measuring the <em>dynamics</em> of retrieval — not just whether the right files are found, but the accuracy (context F1), efficiency, and cost of how agents gather that context.</div>
     <div class="project__badges">
       <a class="badge" href="https://arxiv.org/abs/2602.05892" target="_blank" rel="noopener noreferrer"><span class="k">arXiv</span><span class="v v-arxiv">2602.05892</span></a>
-      <a class="badge" href="https://github.com/EuniAI/ContextBench" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span><span class="v v-gh">{{ site.data.projects.contextbench.github_stars | default: "—" }}</span></a>
-      <a class="badge" href="https://huggingface.co/datasets/Contextbench/ContextBench" target="_blank" rel="noopener noreferrer"><span class="k">HuggingFace</span><span class="v v-hf">{{ site.data.projects.contextbench.hf_downloads | default: "—" }}</span></a>
+      <a class="badge" href="https://github.com/EuniAI/ContextBench" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span><span class="v v-gh">149</span></a>
+      <a class="badge" href="https://huggingface.co/datasets/Contextbench/ContextBench" target="_blank" rel="noopener noreferrer"><span class="k">HuggingFace</span><span class="v v-hf">1028</span></a>
       <a class="badge" href="https://contextbench.github.io/" target="_blank" rel="noopener noreferrer"><span class="k">Website</span><span class="v v-web">contextbench.github.io</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="project">
+  <div class="project__fig">
+    <a href="https://github.com/EuniAI/Prometheus" target="_blank" rel="noopener noreferrer"><img src="{{ '/images/prometheus.png' | relative_url }}" alt="Prometheus overview" /></a>
+    <a href="https://github.com/EuniAI/Prometheus" target="_blank" rel="noopener noreferrer"><img src="{{ '/images/prometheus2.png' | relative_url }}" alt="Prometheus results" style="margin-top:8px;" /></a>
+  </div>
+  <div class="project__body">
+    <div class="project__title">Prometheus: Towards Long-Horizon Codebase Navigation for Repository-Level Problem Solving.</div>
+    <div class="project__authors">Yue Pan, Zimin Chen, Siyu Lu, <a href="https://zhaoyang-chu.github.io/" target="_blank" rel="noopener noreferrer">Zhaoyang Chu</a>, <a href="https://coco-xiangli.github.io/" target="_blank" rel="noopener noreferrer">Xiang Li</a>, Han Li, Yang Feng, Claire Le Goues, Federica Sarro, Martin Monperrus, <strong style="color:#9b1c1c">He Ye</strong>.</div>
+    <div class="project__venue">Preprint.</div>
+    <div class="project__desc">Prometheus is a coding agent for repository-level problem solving that navigates large codebases over long horizons; its novelty is unifying embedding-based retrieval, structure-aware knowledge-graph navigation, and a working memory over the agent's trajectory, so it gathers the right context across many files and reasoning steps — reaching top results on SWE-bench Verified and SWE-PolyBench.</div>
+    <div class="project__badges">
+      <a class="badge" href="https://arxiv.org/abs/2507.19942" target="_blank" rel="noopener noreferrer"><span class="k">arXiv</span><span class="v v-arxiv">2507.19942</span></a>
+      <a class="badge" href="https://github.com/EuniAI/Prometheus" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span><span class="v v-gh">1000+</span></a>
     </div>
   </div>
 </div>

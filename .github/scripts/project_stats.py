@@ -19,6 +19,7 @@ HEADERS = {"User-Agent": "personal-site-stats-bot", "Accept": "application/json"
 PROJECTS = {
     "terminalworld": {"github": "EuniAI/TerminalWorld", "hf_dataset": "EuniAI/TerminalWorld"},
     "contextbench": {"github": "EuniAI/ContextBench", "hf_dataset": "Contextbench/ContextBench"},
+    "prometheus": {"github": "EuniAI/Prometheus"},
 }
 
 
@@ -46,10 +47,11 @@ def main():
             entry["github_stars"] = github_stars(cfg["github"])
         except Exception as exc:
             print(f"WARN {key} github: {exc}", file=sys.stderr)
-        try:
-            entry["hf_downloads"] = hf_downloads(cfg["hf_dataset"])
-        except Exception as exc:
-            print(f"WARN {key} hf: {exc}", file=sys.stderr)
+        if cfg.get("hf_dataset"):
+            try:
+                entry["hf_downloads"] = hf_downloads(cfg["hf_dataset"])
+            except Exception as exc:
+                print(f"WARN {key} hf: {exc}", file=sys.stderr)
         data[key] = entry
 
     data["updated"] = datetime.date.today().isoformat()

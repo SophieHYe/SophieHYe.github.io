@@ -5,4 +5,6 @@ terminalworld:
 contextbench:
   github_stars:
   hf_downloads:
+prometheus:
+  github_stars:
 updated: "2026-07-27"
