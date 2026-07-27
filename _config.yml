@@ -13,7 +13,7 @@ title                    : "He Ye"
 title_separator          : "-"
 name                     : &name "He Ye"
 description              : &description "He Ye — Lecturer (Assistant Professor) at UCL, building the next generation of code agents for software engineering."
-url                      : "https://sophiehye.github.io" # user site (repo must be named SophieHYe.github.io)
+url                      : "https://heye.me" # custom domain (GitHub Pages); repo is SophieHYe.github.io
 baseurl                  : "" # empty for a user site served at the domain root
 repository               : "SophieHYe/SophieHYe.github.io"
 
