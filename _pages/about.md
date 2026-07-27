@@ -30,6 +30,8 @@ body {
 .project__title { font-weight: 700; }
 .project__authors { font-size: 0.9em; margin-top: 3px; }
 .project__venue { font-style: italic; font-size: 0.9em; margin-top: 2px; }
+.project__desc { font-size: 0.9em; margin-top: 6px; }
+.project__featured { font-size: 0.85em; margin-top: 8px; color: #555; }
 .project__badges { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
 .badge {
   display: inline-flex;
@@ -91,11 +93,13 @@ I obtained my PhD from KTH Royal Institute of Technology, where I was fortunate 
     <div class="project__title">TerminalWorld: Benchmarking Agents on Real-World Terminal Tasks.</div>
     <div class="project__authors"><a href="https://zhaoyang-chu.github.io/" target="_blank" rel="noopener noreferrer">Zhaoyang Chu</a>, Jiarui Hu*, Xingyu Jiang*, Pengyu Zou*, Han Li, Chao Peng, Peter O&rsquo;Hearn, Earl T. Barr, Mark Harman, Federica Sarro, <strong style="color:#9b1c1c">He Ye</strong>&dagger;.</div>
     <div class="project__venue">Preprint.</div>
+    <div class="project__desc">TerminalWorld is a benchmark that evaluates AI agents on the real-world terminal workflows developers run every day; its novelty is an automated pipeline that mines real terminal recordings into reproducible, test-verified task environments that stay live as engineering practices evolve.</div>
     <div class="project__badges">
       <a class="badge" href="https://arxiv.org/abs/2605.22535" target="_blank" rel="noopener noreferrer"><span class="k">arXiv</span><span class="v v-arxiv">2605.22535</span></a>
       <a class="badge" href="https://github.com/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span><span class="v v-gh">36</span></a>
       <a class="badge" href="https://huggingface.co/datasets/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">HuggingFace</span><span class="v v-hf">10438</span></a>
       <a class="badge" href="https://terminalworld.ai" target="_blank" rel="noopener noreferrer"><span class="k">Website</span><span class="v v-web">terminalworld.ai</span></a>
     </div>
+    <div class="project__featured">🎙️ TerminalWorld was featured on <a href="https://lastweekin.ai/p/lwiai-podcast-246-gemini-35-omni" target="_blank" rel="noopener noreferrer">Last Week in AI</a> (ep. #246).</div>
   </div>
 </div>

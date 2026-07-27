@@ -21,3 +21,6 @@ package-lock.json
 
 # Ignore files created by MacOS
 .DS_Store
+
+# Local-only dev/ops notes (contains internal cluster hostnames; keep out of the public repo)
+CLAUDE.md
