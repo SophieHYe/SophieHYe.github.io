@@ -96,10 +96,29 @@ I obtained my PhD from KTH Royal Institute of Technology, where I was fortunate 
     <div class="project__desc">TerminalWorld is a benchmark that evaluates AI agents on the real-world terminal workflows developers run every day; its novelty is an automated pipeline that mines real terminal recordings into reproducible, test-verified task environments that stay live as engineering practices evolve.</div>
     <div class="project__badges">
       <a class="badge" href="https://arxiv.org/abs/2605.22535" target="_blank" rel="noopener noreferrer"><span class="k">arXiv</span><span class="v v-arxiv">2605.22535</span></a>
-      <a class="badge" href="https://github.com/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span><span class="v v-gh">36</span></a>
-      <a class="badge" href="https://huggingface.co/datasets/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">HuggingFace</span><span class="v v-hf">10438</span></a>
+      <a class="badge" href="https://github.com/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span><span class="v v-gh">{{ site.data.projects.terminalworld.github_stars | default: "—" }}</span></a>
+      <a class="badge" href="https://huggingface.co/datasets/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">HuggingFace</span><span class="v v-hf">{{ site.data.projects.terminalworld.hf_downloads | default: "—" }}</span></a>
       <a class="badge" href="https://terminalworld.ai" target="_blank" rel="noopener noreferrer"><span class="k">Website</span><span class="v v-web">terminalworld.ai</span></a>
     </div>
     <div class="project__featured">🎙️ TerminalWorld was featured on <a href="https://lastweekin.ai/p/lwiai-podcast-246-gemini-35-omni" target="_blank" rel="noopener noreferrer">Last Week in AI</a> (ep. #246).</div>
+  </div>
+</div>
+
+<div class="project">
+  <div class="project__fig">
+    <a href="https://contextbench.github.io/" target="_blank" rel="noopener noreferrer"><img src="{{ '/images/contextbench.png' | relative_url }}" alt="ContextBench overview" /></a>
+    <a href="https://contextbench.github.io/" target="_blank" rel="noopener noreferrer"><img src="{{ '/images/contextbench2.png' | relative_url }}" alt="ContextBench leaderboard" style="margin-top:8px;" /></a>
+  </div>
+  <div class="project__body">
+    <div class="project__title">ContextBench: A Benchmark for Context Retrieval in Coding Agents.</div>
+    <div class="project__authors">Han Li, Letian Zhu, Bohan Zhang, Rili Feng, Jiaming Wang, Yue Pan, Earl T Barr, Federica Sarro, <a href="https://zhaoyang-chu.github.io/" target="_blank" rel="noopener noreferrer">Zhaoyang Chu</a>, <strong style="color:#9b1c1c">He Ye</strong>.</div>
+    <div class="project__venue">Preprint.</div>
+    <div class="project__desc">ContextBench is a benchmark that evaluates how coding agents perform multi-file context retrieval across a repository; its novelty is measuring the <em>dynamics</em> of retrieval — not just whether the right files are found, but the accuracy (context F1), efficiency, and cost of how agents gather that context.</div>
+    <div class="project__badges">
+      <a class="badge" href="https://arxiv.org/abs/2602.05892" target="_blank" rel="noopener noreferrer"><span class="k">arXiv</span><span class="v v-arxiv">2602.05892</span></a>
+      <a class="badge" href="https://github.com/EuniAI/ContextBench" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span><span class="v v-gh">{{ site.data.projects.contextbench.github_stars | default: "—" }}</span></a>
+      <a class="badge" href="https://huggingface.co/datasets/Contextbench/ContextBench" target="_blank" rel="noopener noreferrer"><span class="k">HuggingFace</span><span class="v v-hf">{{ site.data.projects.contextbench.hf_downloads | default: "—" }}</span></a>
+      <a class="badge" href="https://contextbench.github.io/" target="_blank" rel="noopener noreferrer"><span class="k">Website</span><span class="v v-web">contextbench.github.io</span></a>
+    </div>
   </div>
 </div>

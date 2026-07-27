@@ -1,0 +1,38 @@
+name: Update project stats
+
+on:
+  schedule:
+    - cron: '37 4 * * *'   # daily ~04:37 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Fetch project stats (GitHub stars, HF downloads)
+        run: python .github/scripts/project_stats.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- _data/projects.yml; then
+            echo "No change in project stats."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add _data/projects.yml
+            git commit -m "chore: update project stats [skip ci]"
+            git push
+          fi
