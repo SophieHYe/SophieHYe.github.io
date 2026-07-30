@@ -3,8 +3,8 @@ contextbench:
   github_stars: 150
   hf_downloads: 994
 prometheus:
-  github_stars: 1009
+  github_stars: 1008
 terminalworld:
   github_stars: 36
   hf_downloads: 1045
-updated: '2026-07-29'
+updated: '2026-07-30'
