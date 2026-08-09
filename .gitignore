@@ -24,3 +24,8 @@ package-lock.json
 
 # Local-only dev/ops notes (contains internal cluster hostnames; keep out of the public repo)
 CLAUDE.md
+RESUME_STATE.md
+
+# Local-only working files (private paper queue + draft template)
+_pages/rsi-queue.md
+_drafts/paper-note-template.md
