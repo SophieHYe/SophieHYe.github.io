@@ -68,7 +68,7 @@ I obtained my PhD from KTH Royal Institute of Technology, where I was fortunate 
 **Let's connect:** I'm always happy to talk research, swap ideas, or just say hi — whether we share interests or come from very different fields. Reach me at [he.ye@ucl.ac.uk](mailto:he.ye@ucl.ac.uk).
 
 <div class="funding" markdown="1">
-**Funding:** We greatly appreciate that our research is supported by Google, AWS, Mistral AI, and Delysium (Jerry Zhang) through computing credits and gift funding.
+**Funding:** We greatly appreciate that our research is supported by Google, AWS, Mistral AI, and Jerry Zhang through computing credits and gift funding.
 </div>
 
 ## News
