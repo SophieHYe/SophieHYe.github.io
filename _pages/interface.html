@@ -1,0 +1,92 @@
+---
+layout: archive
+permalink: /blog/interface/
+title: "Agent-Native Interfaces"
+author_profile: true
+---
+
+<style>
+  #page-title, .page__title { color: #0f766e; font-weight: 700; }
+  .rsi-entry {
+    border: 1px solid rgba(128,128,128,0.25);
+    border-radius: 8px;
+    padding: 0.9em 1.3em 0.6em;
+    margin: 1.3em 0;
+  }
+  .rsi-entry .rsi-title { margin: 0 0 0.15em; }
+  .rsi-entry .rsi-date { font-size: 0.7em; font-weight: 400; color: #999; }
+  .rsi-summary {
+    font-style: italic;
+    margin: 0.4em 0 0.8em;
+    padding-left: 0.75em;
+    border-left: 3px solid #0f766e;
+  }
+  .rsi-entry p { margin: 0.4em 0; }
+  .rsi-entry ul { margin: 0.25em 0 0.6em; font-size: 0.9em; }
+  .rsi-entry li { margin: 0.05em 0; line-height: 1.35; }
+  .rsi-entry p:not(.rsi-summary) { font-size: 0.9em; }
+  .rsi-meta { font-size: 0.8em; color: #777; margin: 0 0 0.35em; }
+  .rsi-meta p { margin: 0; }
+  .series-nav { font-size: 0.85em; color: #777; margin: -0.5em 0 1.2em; }
+  .ladder td, .ladder th { font-size: 0.85em; padding: 0.35em 0.6em; }
+</style>
+
+<p class="series-nav">Series: <a href="/blog/">Recursive Self-Improvement</a> · <strong>Agent-Native Interfaces</strong></p>
+
+<p>Notes on how agents should <em>operate software</em> — through the pixels of a human interface, or through a constructed, verifiable command surface. One paper per entry.</p>
+
+<blockquote style="border-left: 4px solid #0f766e; margin: 1.5em 0; padding: 0.6em 1em; background: rgba(15,118,110,0.06);">
+  <strong>Start here →</strong>
+  <a href="https://arxiv.org/abs/2606.24551">GUI vs. CLI: Execution Bottlenecks in Screen-Only and Skill-Mediated Computer-Use Agents</a>
+  (Zhou et al., Jun 2026). The cleanest controlled comparison in this space: 440 desktop tasks where both modalities get identical goals, initial states and verifiers. GUI wins out of the box (59.1% vs 48.2%) — but only 37.6% of verifier checkpoints are reachable through the CLI skill layer at all, and patching that coverage lifts CLI to 69.3%. The bottleneck is the interface, not the model.
+  <br><strong>Queue →</strong> <a href="/blog/interface/queue/">papers to write up</a>.
+</blockquote>
+
+<h2>Why this series is not called "CLI"</h2>
+
+<p>Because the shell is not the point. The same papers show MCP tool agents — also a programmatic interface — collapsing to 11.5% on ServiceNow with 83 curated tools, while seven generic CRUD tools on another platform nearly match a browser agent. What separates the winners is not <em>command line vs pixels</em> but whether the interface exposes a <strong>contract</strong>: explicit state, stable verbs, deterministic feedback, programmatic verification, and a way to discover all of it at task time. CLI is currently the cheapest way to get one.</p>
+
+<h2>The map</h2>
+
+<p>Four layers, ordered by where the stable semantic interface comes from — plus an evaluation axis that runs across all of them.</p>
+
+<table class="ladder">
+  <thead><tr><th>Layer</th><th>Where the contract comes from</th><th>Papers</th></tr></thead>
+  <tbody>
+    <tr><td><strong>L0 · Already there</strong></td><td>The platform ships a shell or a REST API</td><td>Terminal Agents Suffice; Beyond the GUI Paradigm (ADB)</td></tr>
+    <tr><td><strong>L1 · Lifted by hand</strong></td><td>A human or agent lifts the app's backend into a stateful CLI harness</td><td>CLI-Anything; OSWorld-MCP's tool generation; OpenCLI</td></tr>
+    <tr><td><strong>L2 · Compiled from traces</strong></td><td>Run it once with an LLM, freeze the successful trajectory into a replayable skill</td><td>SkillDroid; AutoRPA; AppAgent-Claw</td></tr>
+    <tr><td><strong>L3 · Learned routing</strong></td><td>Both surfaces exist; train the model to choose between them</td><td>ToolCUA</td></tr>
+    <tr><td><strong>Eval axis</strong></td><td>How do you compare two interfaces without confounding everything else?</td><td>OSWorld-MCP → WeaveBench → GUI vs. CLI</td></tr>
+  </tbody>
+</table>
+
+<p>All four layers do the same thing in different currencies: <strong>replace per-step open-world reasoning with a contract constructed once</strong>. They differ only in who pays for that contract, and when.</p>
+
+<h2>Five claims the field currently rests on</h2>
+
+<ol style="font-size: 0.92em;">
+  <li><strong>The interface can outweigh the model.</strong> On matched tasks, GPT-5.4 through a GUI (59.1%) beats a stronger model through a skill-mediated CLI (48.2%). Swap the harness under a fixed model on WeaveBench and Opus 4.7 goes from 41.2% to 13.2%.</li>
+  <li><strong>The CLI bottleneck is skill coverage, not capability.</strong> 37.6% checkpoint coverage → 69.3% success once patched. Whether that coverage can be synthesized <em>without</em> looking at the verifier is stated as an open question.</li>
+  <li><strong>Hybrid is not free.</strong> Simply exposing GUI + tools drops Claude-4.5-Sonnet from 61.9% to 48.4% on OSWorld. It has to be trained (ToolCUA) or forced by task design (WeaveBench: ≤3.5% single-channel vs 35.1% hybrid).</li>
+  <li><strong>The case is economic as much as it is about accuracy.</strong> Terminal agents run 2–9× cheaper than browser agents at equal success; compiled skills cut tokens 82–96%; CLI agents take roughly half the steps.</li>
+  <li><strong>Outcome-only grading is not safe here.</strong> Trajectory auditing drops GPT-5.5 from 53.5% to 33.3% on WeaveBench, and the single largest failure family is reward hacking — fabricated renders, hard-coded metrics.</li>
+</ol>
+
+<p style="font-size: 0.92em;">And the ceiling is real: oracle solutions show ~87% of mobile benchmark tasks are CLI-solvable. Cameras, freehand drawing, values that only exist in a rendered panel — for those, the GUI is not a fallback, it is the only path.</p>
+
+{% assign iface_posts = site.posts | where_exp: "p", "p.series == 'interface'" %}
+{% if iface_posts.size > 0 %}
+<h2>Notes</h2>
+{% for post in iface_posts %}
+  <article class="rsi-entry">
+    <h3 class="rsi-title">{{ post.title }} <span class="rsi-date">{{ post.date | date: "%b %-d, %Y" }}</span></h3>
+    {% if post.meta %}<div class="rsi-meta">{{ post.meta | markdownify }}</div>{% endif %}
+    {% if post.summary %}<p class="rsi-summary">{{ post.summary }}</p>{% endif %}
+    {{ post.content }}
+  </article>
+{% endfor %}
+{% else %}
+<h2>Notes</h2>
+<p><em>Writing in progress — the reading order is in the <a href="/blog/interface/queue/">queue</a>.</em></p>
+{% endif %}

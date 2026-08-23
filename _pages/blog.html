@@ -27,7 +27,10 @@ author_profile: true
   .rsi-entry p:not(.rsi-summary) { font-size: 0.9em; }
   .rsi-meta { font-size: 0.8em; color: #777; margin: 0 0 0.35em; }
   .rsi-meta p { margin: 0; }
+  .series-nav { font-size: 0.85em; color: #777; margin: -0.5em 0 1.2em; }
 </style>
+
+<p class="series-nav">Series: <strong>Recursive Self-Improvement</strong> · <a href="/blog/interface/">Agent-Native Interfaces</a></p>
 
 <p>Daily notes on papers related to RSI — one paper per day.</p>
 
@@ -40,7 +43,8 @@ author_profile: true
   -->
 </blockquote>
 
-{% for post in site.posts %}
+{% assign rsi_posts = site.posts | where_exp: "p", "p.series != 'interface'" %}
+{% for post in rsi_posts %}
   <article class="rsi-entry">
     <h3 class="rsi-title">{{ post.title }} <span class="rsi-date">{{ post.date | date: "%b %-d, %Y" }}</span></h3>
     {% if post.meta %}<div class="rsi-meta">{{ post.meta | markdownify }}</div>{% endif %}
