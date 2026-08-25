@@ -98,7 +98,8 @@ I obtained my PhD from KTH Royal Institute of Technology, where I was fortunate 
     <div class="project__badges">
       <a class="badge" href="https://arxiv.org/abs/2605.22535" target="_blank" rel="noopener noreferrer"><span class="k">arXiv</span><span class="v v-arxiv">2605.22535</span></a>
       <a class="badge" href="https://github.com/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span><span class="v v-gh">{{ site.data.projects.terminalworld.github_stars | default: "—" }}</span></a>
-      <a class="badge" href="https://huggingface.co/datasets/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">HuggingFace</span><span class="v v-hf">{{ site.data.projects.terminalworld.hf_downloads | default: "—" }}</span></a>
+      <!-- HuggingFace downloads: hardcoded on purpose (the daily project-stats workflow undercounts it). Edit the number here. -->
+      <a class="badge" href="https://huggingface.co/datasets/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">HuggingFace</span><span class="v v-hf">14612</span></a>
       <a class="badge" href="https://terminalworld.ai" target="_blank" rel="noopener noreferrer"><span class="k">Website</span><span class="v v-web">terminalworld.ai</span></a>
     </div>
     <div class="project__featured">🎙️ TerminalWorld was featured on <a href="https://lastweekin.ai/p/lwiai-podcast-246-gemini-35-omni" target="_blank" rel="noopener noreferrer">Last Week in AI</a> (ep. #246).</div>
