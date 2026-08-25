@@ -1,8 +1,11 @@
 ---
 layout: archive
-permalink: /blog/interface/
+permalink: /research-notes/cli/
 title: "Agent-Native Interfaces"
 author_profile: true
+redirect_from:
+  - /blog/interface/
+  - /blog/interface/queue/
 ---
 
 <style>
@@ -55,7 +58,7 @@ author_profile: true
   .rl-adjacent { font-size: 0.82em; color: #777; margin-top: 1.8em; padding-top: 0.8em; border-top: 1px dashed rgba(128,128,128,0.3); }
 </style>
 
-<p class="series-nav"><a href="/blog/">Blog</a> &rsaquo; <a href="/blog/rsi/">RSI</a> &middot; <strong>CLI</strong>{% if site.show_terminalworld %} &middot; <a href="/blog/terminalworld/">TerminalWorld</a>{% endif %}</p>
+<p class="series-nav"><a href="/research-notes/">Research Notes</a> &rsaquo; <a href="/research-notes/rsi/">RSI</a> &middot; <strong>CLI</strong>{% if site.show_terminalworld %} &middot; <a href="/research-notes/terminalworld/">TerminalWorld</a>{% endif %}</p>
 
 <p>Notes on how agents should <em>operate software</em> — through the pixels of a human interface, or through a constructed, verifiable command surface. One paper per entry.</p>
 
@@ -67,7 +70,7 @@ author_profile: true
 </blockquote>
 
 {% comment %}
-  Writing workflow (was on the old /blog/interface/queue/ page, kept here as a source-only note;
+  Writing workflow (was on the old queue page, now redirected here, kept here as a source-only note;
   a Liquid comment is not emitted into the built HTML):
   pick one from the reading list → cp _drafts/paper-note-template.md _posts/YYYY-MM-DD-slug.md
   → add `series: interface` to the front matter → fill it in → move it out of the list.

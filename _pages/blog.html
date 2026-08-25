@@ -1,8 +1,10 @@
 ---
 layout: archive
-permalink: /blog/
-title: "Blog"
+permalink: /research-notes/
+title: "Research Notes"
 author_profile: true
+redirect_from:
+  - /blog/
 ---
 
 <style>
@@ -55,14 +57,14 @@ author_profile: true
 
 <div class="blog-hub">
 
-  <a class="hub-card hub-rsi" href="/blog/rsi/">
+  <a class="hub-card hub-rsi" href="/research-notes/rsi/">
     <h2>RSI · Recursive Self-Improvement</h2>
     <p class="hub-sub">Can a system improve the machinery that produces its own intelligence?</p>
     <p class="hub-blurb">Daily notes on agents that improve their own scaffolding — self-referential optimisation loops, evolved harnesses, and the empirical question of whether any of it compounds. Roadmap follows Lilian Weng's harness-engineering survey.</p>
     <p class="hub-meta">{% assign rsi_posts = site.posts | where_exp: "p", "p.series != 'interface'" | where_exp: "p", "p.series != 'terminalworld'" %}{{ rsi_posts.size }} note{% if rsi_posts.size != 1 %}s{% endif %}{% if rsi_posts.size > 0 %} · latest {{ rsi_posts.first.date | date: "%b %-d, %Y" }}{% endif %} →</p>
   </a>
 
-  <a class="hub-card hub-cli" href="/blog/interface/">
+  <a class="hub-card hub-cli" href="/research-notes/cli/">
     <h2>CLI · Agent-Native Interfaces</h2>
     <p class="hub-sub">Should agents act through the pixels of a human GUI, or through a constructed command surface?</p>
     <p class="hub-blurb">How agents should <em>operate software</em>. Controlled GUI-vs-CLI comparisons, skill compilation, MCP tool layers, and the recurring finding that the interface can outweigh the model.</p>
@@ -72,5 +74,5 @@ author_profile: true
 </div>
 
 {% if site.show_terminalworld %}
-<p class="hub-private"><a href="/blog/terminalworld/">TerminalWorld</a> <span class="hub-local">local only</span> — unpublished working notes; not part of the public site.</p>
+<p class="hub-private"><a href="/research-notes/terminalworld/">TerminalWorld</a> <span class="hub-local">local only</span> — unpublished working notes; not part of the public site.</p>
 {% endif %}
