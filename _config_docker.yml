@@ -1,1 +1,6 @@
 url: ""
+
+# Local-preview-only overrides.
+# TerminalWorld is unpublished internal research: its pages are git-ignored and
+# every link to them is gated behind this flag, so they exist only here.
+show_terminalworld: true

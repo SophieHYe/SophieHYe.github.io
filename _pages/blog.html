@@ -1,54 +1,76 @@
 ---
 layout: archive
 permalink: /blog/
-title: "Recursive Self-Improvement (RSI)"
+title: "Blog"
 author_profile: true
 ---
 
 <style>
-  #page-title, .page__title { color: #9b1c1c; font-weight: 700; }
-  .rsi-entry {
+  .blog-hub { margin: 1.2em 0 0; }
+  .hub-card {
+    display: block;
     border: 1px solid rgba(128,128,128,0.25);
+    border-left-width: 5px;
     border-radius: 8px;
-    padding: 0.9em 1.3em 0.6em;
-    margin: 1.3em 0;
+    padding: 1em 1.3em 1.1em;
+    margin: 1.1em 0;
+    text-decoration: none !important;
+    color: inherit !important;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
   }
-  .rsi-entry .rsi-title { margin: 0 0 0.15em; }
-  .rsi-entry .rsi-date { font-size: 0.7em; font-weight: 400; color: #999; }
-  .rsi-summary {
-    font-style: italic;
-    margin: 0.4em 0 0.8em;
-    padding-left: 0.75em;
-    border-left: 3px solid #9b1c1c;
+  .hub-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.10); transform: translateY(-1px); }
+  .hub-card h2 { margin: 0 0 0.1em; font-size: 1.25em; font-weight: 700; }
+  .hub-card .hub-sub { font-size: 0.85em; color: #888; margin: 0 0 0.55em; }
+  .hub-card .hub-blurb { font-size: 0.92em; margin: 0 0 0.6em; }
+  .hub-card .hub-meta { font-size: 0.8em; color: #999; margin: 0; }
+  .hub-rsi { border-left-color: #9b1c1c; }
+  .hub-rsi h2 { color: #9b1c1c; }
+  .hub-cli { border-left-color: #0f766e; }
+  .hub-cli h2 { color: #0f766e; }
+  .hub-tw { border-left-color: #1d4ed8; }
+  .hub-tw h2 { color: #1d4ed8; }
+  .hub-private {
+    font-size: 0.78em;
+    color: #999;
+    margin: 2em 0 0;
+    padding-top: 0.7em;
+    border-top: 1px dashed rgba(128,128,128,0.3);
   }
-  .rsi-entry p { margin: 0.4em 0; }
-  .rsi-entry ul { margin: 0.25em 0 0.6em; font-size: 0.9em; }
-  .rsi-entry li { margin: 0.05em 0; line-height: 1.35; }
-  .rsi-entry p:not(.rsi-summary) { font-size: 0.9em; }
-  .rsi-meta { font-size: 0.8em; color: #777; margin: 0 0 0.35em; }
-  .rsi-meta p { margin: 0; }
-  .series-nav { font-size: 0.85em; color: #777; margin: -0.5em 0 1.2em; }
+  .hub-local {
+    display: inline-block;
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #1d4ed8;
+    border: 1px solid rgba(29,78,216,0.45);
+    border-radius: 4px;
+    padding: 0.05em 0.4em;
+    margin-left: 0.5em;
+    vertical-align: 0.15em;
+  }
 </style>
 
-<p class="series-nav">Series: <strong>Recursive Self-Improvement</strong> · <a href="/blog/interface/">Agent-Native Interfaces</a></p>
+<p>Two reading logs. One paper per entry, written up as I go.</p>
 
-<p>Daily notes on papers related to RSI — one paper per day.</p>
+<div class="blog-hub">
 
-<blockquote style="border-left: 4px solid var(--global-link-color, #9b1c1c); margin: 1.5em 0; padding: 0.6em 1em; background: rgba(155,28,28,0.05);">
-  <strong>Start here →</strong>
-  <a href="https://lilianweng.github.io/posts/2026-07-04-harness/">Harness Engineering for Self-Improvement</a>
-  (Lilian Weng, Jul 2026). A survey framing RSI as a self-referential feedback loop and arguing the near-term path runs through <em>harness engineering</em>. It indexes many of the individual papers covered below (STOP, DGM, AlphaEvolve, ACE/MCE, Self-Harness, AHE, …) — the roadmap for this daily log.
-  <!-- Queue link hidden per request
-  <br><strong>Queue →</strong> <a href="/blog/queue/">papers to write up</a>.
-  -->
-</blockquote>
+  <a class="hub-card hub-rsi" href="/blog/rsi/">
+    <h2>RSI · Recursive Self-Improvement</h2>
+    <p class="hub-sub">Can a system improve the machinery that produces its own intelligence?</p>
+    <p class="hub-blurb">Daily notes on agents that improve their own scaffolding — self-referential optimisation loops, evolved harnesses, and the empirical question of whether any of it compounds. Roadmap follows Lilian Weng's harness-engineering survey.</p>
+    <p class="hub-meta">{% assign rsi_posts = site.posts | where_exp: "p", "p.series != 'interface'" | where_exp: "p", "p.series != 'terminalworld'" %}{{ rsi_posts.size }} note{% if rsi_posts.size != 1 %}s{% endif %}{% if rsi_posts.size > 0 %} · latest {{ rsi_posts.first.date | date: "%b %-d, %Y" }}{% endif %} →</p>
+  </a>
 
-{% assign rsi_posts = site.posts | where_exp: "p", "p.series != 'interface'" %}
-{% for post in rsi_posts %}
-  <article class="rsi-entry">
-    <h3 class="rsi-title">{{ post.title }} <span class="rsi-date">{{ post.date | date: "%b %-d, %Y" }}</span></h3>
-    {% if post.meta %}<div class="rsi-meta">{{ post.meta | markdownify }}</div>{% endif %}
-    {% if post.summary %}<p class="rsi-summary">{{ post.summary }}</p>{% endif %}
-    {{ post.content }}
-  </article>
-{% endfor %}
+  <a class="hub-card hub-cli" href="/blog/interface/">
+    <h2>CLI · Agent-Native Interfaces</h2>
+    <p class="hub-sub">Should agents act through the pixels of a human GUI, or through a constructed command surface?</p>
+    <p class="hub-blurb">How agents should <em>operate software</em>. Controlled GUI-vs-CLI comparisons, skill compilation, MCP tool layers, and the recurring finding that the interface can outweigh the model.</p>
+    <p class="hub-meta">literature map · 13 papers queued →</p>
+  </a>
+
+</div>
+
+{% if site.show_terminalworld %}
+<p class="hub-private"><a href="/blog/terminalworld/">TerminalWorld</a> <span class="hub-local">local only</span> — unpublished working notes; not part of the public site.</p>
+{% endif %}

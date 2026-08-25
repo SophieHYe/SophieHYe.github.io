@@ -14,9 +14,6 @@ main:
   - title: "Blog"
     url: /blog/
 
-  - title: "Interfaces"
-    url: /blog/interface/
-
   - title: "Team"
     url: /team/
 
