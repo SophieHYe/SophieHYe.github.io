@@ -1,10 +1,10 @@
 # Auto-updated daily by .github/workflows/project-stats.yml — do not edit by hand.
 contextbench:
   github_stars: 138
-  hf_downloads: 556
+  hf_downloads: 527
 prometheus:
   github_stars: 1127
 terminalworld:
   github_stars: 45
-  hf_downloads: 4637
-updated: '2026-08-29'
+  hf_downloads: 4664
+updated: '2026-08-30'
