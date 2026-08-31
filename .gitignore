@@ -26,11 +26,16 @@ package-lock.json
 CLAUDE.md
 RESUME_STATE.md
 
-# Local-only working files (private paper queue + draft template)
+# Local-only research memory (unpublished work + reviews of others' drafts; never publish)
+RESEARCH_MEMORY.md
+
+# Local-only working files (private paper queue + its data + draft template)
 _pages/rsi-queue.md
+_data/rsi_papers.yml
 _drafts/paper-note-template.md
 
 # Local-only: unpublished TerminalWorld research notes (kept out of the public repo;
 # links to these pages are gated behind `show_terminalworld` in _config_docker.yml)
 _pages/terminalworld.html
 _pages/terminalworld-science.md
+_pages/terminalworld-multimodal.md
