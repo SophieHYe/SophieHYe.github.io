@@ -29,6 +29,8 @@ redirect_from:
   .hub-rsi h2 { color: #9b1c1c; }
   .hub-cli { border-left-color: #0f766e; }
   .hub-cli h2 { color: #0f766e; }
+  .hub-rua { border-left-color: #b45309; }
+  .hub-rua h2 { color: #b45309; }
   .hub-tw { border-left-color: #1d4ed8; }
   .hub-tw h2 { color: #1d4ed8; }
   .hub-private {
@@ -53,7 +55,7 @@ redirect_from:
   }
 </style>
 
-<p>Two reading logs. One paper per entry, written up as I go.</p>
+<p>Three reading logs. One paper per entry, written up as I go.</p>
 
 <div class="blog-hub">
 
@@ -61,13 +63,20 @@ redirect_from:
     <h2>RSI · Recursive Self-Improvement</h2>
     <p class="hub-sub">Can a system improve the machinery that produces its own intelligence?</p>
     <p class="hub-blurb">Daily notes on agents that improve their own scaffolding — self-referential optimisation loops, evolved harnesses, and the empirical question of whether any of it compounds. Roadmap follows Lilian Weng's harness-engineering survey.</p>
-    <p class="hub-meta">{% assign rsi_posts = site.posts | where_exp: "p", "p.series != 'interface'" | where_exp: "p", "p.series != 'terminalworld'" %}{{ rsi_posts.size }} note{% if rsi_posts.size != 1 %}s{% endif %}{% if rsi_posts.size > 0 %} · latest {{ rsi_posts.first.date | date: "%b %-d, %Y" }}{% endif %} →</p>
+    <p class="hub-meta">{% assign rsi_posts = site.posts | where_exp: "p", "p.series != 'interface'" | where_exp: "p", "p.series != 'terminalworld'" | where_exp: "p", "p.series != 'rua'" %}{{ rsi_posts.size }} note{% if rsi_posts.size != 1 %}s{% endif %}{% if rsi_posts.size > 0 %} · latest {{ rsi_posts.first.date | date: "%b %-d, %Y" }}{% endif %} →</p>
   </a>
 
   <a class="hub-card hub-cli" href="/research-notes/cli/">
     <h2>CLI · Agent-Native Interfaces</h2>
     <p class="hub-sub">Should agents act through the pixels of a human GUI, or through a constructed command surface?</p>
     <p class="hub-blurb">How agents should <em>operate software</em>. Controlled GUI-vs-CLI comparisons, skill compilation, MCP tool layers, and the recurring finding that the interface can outweigh the model.</p>
+    <p class="hub-meta">literature map · 13 papers queued →</p>
+  </a>
+
+  <a class="hub-card hub-rua" href="/research-notes/rua/">
+    <h2>RUA · Robot-Use Agents</h2>
+    <p class="hub-sub">Is a coding agent already a visuomotor policy, if you hand it the robot's own interface?</p>
+    <p class="hub-blurb">Agents that <em>operate a robot</em> the way they operate a computer. Code as policies, agents wrapped around frozen VLAs, ROS 2 as the native action contract, and the benchmarks that show how little of the reported progress is actually zero-shot.</p>
     <p class="hub-meta">literature map · 13 papers queued →</p>
   </a>
 

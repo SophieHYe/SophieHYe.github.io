@@ -1,0 +1,157 @@
+---
+layout: archive
+permalink: /research-notes/rua/
+title: "Robot-Use Agents (RUA)"
+author_profile: true
+---
+
+<style>
+  #page-title, .page__title { color: #b45309; font-weight: 700; }
+  .rsi-entry {
+    border: 1px solid rgba(128,128,128,0.25);
+    border-radius: 8px;
+    padding: 0.9em 1.3em 0.6em;
+    margin: 1.3em 0;
+  }
+  .rsi-entry .rsi-title { margin: 0 0 0.15em; }
+  .rsi-entry .rsi-date { font-size: 0.7em; font-weight: 400; color: #999; }
+  .rsi-summary {
+    font-style: italic;
+    margin: 0.4em 0 0.8em;
+    padding-left: 0.75em;
+    border-left: 3px solid #b45309;
+  }
+  .rsi-entry p { margin: 0.4em 0; }
+  .rsi-entry ul { margin: 0.25em 0 0.6em; font-size: 0.9em; }
+  .rsi-entry li { margin: 0.05em 0; line-height: 1.35; }
+  .rsi-entry p:not(.rsi-summary) { font-size: 0.9em; }
+  .rsi-meta { font-size: 0.8em; color: #777; margin: 0 0 0.35em; }
+  .rsi-meta p { margin: 0; }
+  .series-nav { font-size: 0.85em; color: #777; margin: -0.5em 0 1.2em; }
+  .ladder td, .ladder th { font-size: 0.85em; padding: 0.35em 0.6em; }
+  .rl { list-style: none; margin: 1em 0 0; padding: 0; }
+  .rl > li {
+    font-size: 0.88em;
+    line-height: 1.5;
+    margin: 0 0 1em;
+    padding-left: 0.9em;
+    border-left: 2px solid rgba(180,83,9,0.25);
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    padding: 0.05em 0.4em;
+    margin-right: 0.35em;
+    vertical-align: 0.1em;
+    background: rgba(180,83,9,0.10);
+    color: #b45309;
+    border: 1px solid rgba(180,83,9,0.30);
+  }
+  .tag-x { background: rgba(128,128,128,0.10); color: #777; border-color: rgba(128,128,128,0.35); }
+  .rl-adjacent { font-size: 0.82em; color: #777; margin-top: 1.8em; padding-top: 0.8em; border-top: 1px dashed rgba(128,128,128,0.3); }
+</style>
+
+<p class="series-nav"><a href="/research-notes/">Research Notes</a> &rsaquo; <a href="/research-notes/rsi/">RSI</a> &middot; <a href="/research-notes/cli/">CLI</a> &middot; <strong>RUA</strong>{% if site.show_terminalworld %} &middot; <a href="/research-notes/terminalworld/">TerminalWorld</a>{% endif %}</p>
+
+<p>Notes on agents that <em>operate a robot the way they operate a computer</em>. A robot is a software system — drivers, middleware, planners, controllers — so a coding agent that can drive a codebase and a terminal can, in principle, drive an arm. One paper per entry.</p>
+
+<blockquote style="border-left: 4px solid #b45309; margin: 1.5em 0; padding: 0.6em 1em; background: rgba(180,83,9,0.06);">
+  <strong>Start here →</strong>
+  <a href="https://web.mit.edu/phillipi/www/writing/robot-use-agents.html">Robot-Use Agents</a>
+  (Phillip Isola, Sep 2026), which names the paradigm, and
+  <a href="https://arxiv.org/abs/2603.22435">CaP-X</a> (Fu et al., Mar 2026), the first benchmark that measures it.
+  The premise: a frontier coding agent already knows geometry, physics and programming, and a robot already exposes a programmable interface — so the policy can be <em>written</em> rather than <em>learned</em>, and then inspected, edited and debugged instead of retrained.
+  <br>The full reading list is at the <a href="#reading-list">bottom of this page</a>.
+</blockquote>
+
+<h2>Why this is the same question as the CLI series</h2>
+
+<p>The <a href="/research-notes/cli/">CLI series</a> asks where an agent's action contract comes from when it operates an application. Robotics asks the identical question with harder consequences: the contract is a motion interface, the feedback is physical, and a bad action breaks hardware rather than a database row. And the answers line up almost one to one — hand-lifted primitive libraries are L1, frozen skills replayed from demonstrations are L2, and the robot's own middleware (ROS 2) is the L0 case where the contract already ships with the platform. The interesting claim, in both fields, is that <strong>the pre-existing native interface beats the bespoke one</strong>, because nobody has to maintain it and it is identical across embodiments and between simulation and hardware.</p>
+
+<h2>The map</h2>
+
+<p>Four families, ordered by how much of the control loop the agent itself owns — plus an evaluation axis that runs across all of them.</p>
+
+<table class="ladder">
+  <thead><tr><th>Family</th><th>What the agent acts through</th><th>Who closes the loop</th><th>Papers</th></tr></thead>
+  <tbody>
+    <tr><td><strong>A · Agent over a learned policy</strong></td><td>Semantic tool calls: <code>pick(obj)</code>, <code>place(obj, tray)</code></td><td>The VLA's own network</td><td>SayCan; Harness VLA; Zetta; RoboHarness; Emerge-Policy; VOLO</td></tr>
+    <tr><td><strong>B · Agent writes code over primitives</strong></td><td>A curated library: grasp sampler, IK solver, joint/gripper moves</td><td>The agent, between primitive calls</td><td>Code as Policies; CaP-X; RHO; ASPIRE; GTA-2; Playful Agentic Robot Learning</td></tr>
+    <tr><td><strong>C · Agent emits actions directly</strong></td><td>End-effector poses, step by step, often from a visual interface</td><td>The agent, every step</td><td>VIA; GUAVA; Show-Harness; Agent-as-Policy; GPT-as-Policy</td></tr>
+    <tr><td><strong>D · Agent on the robot's native stack</strong></td><td>ROS 2 topics, services, actions — <code>ros2cli</code> and <code>rclpy</code></td><td>The agent, in code it writes itself</td><td>ROSA; ROS-LLM; rosaOS; ROSClaw</td></tr>
+    <tr><td><strong>Eval axis</strong></td><td>How do you score a policy nobody trained?</td><td>—</td><td>LIBERO-Plus → LIBERO-PRO → CaP-Bench → RoboCasa365</td></tr>
+  </tbody>
+</table>
+
+<p>A and B pay for their contract up front: someone collects demonstrations, or someone writes and maintains the primitive set. C pays per step, in agent turns. D is the only family where the contract is free, because the robot already shipped it — but it is also the family with the least evidence, since the existing ROS-agent frameworks predate agentic coding and are evaluated on in-house demos rather than benchmarks.</p>
+
+<h2>Five claims the field currently rests on</h2>
+
+<ol style="font-size: 0.92em;">
+  <li><strong>Learned visuomotor policies are bounded by their demonstrations.</strong> OpenVLA and π<sub>0</sub> score <em>0%</em> on LIBERO-PRO — the same tasks they were trained on, with the scenes perturbed. The headline numbers on LIBERO were memorisation.</li>
+  <li><strong>The tool interface hides the failure.</strong> When a learned policy is wrapped as <code>pick(obj)</code>, the orchestrating agent cannot see why the grasp missed, so it cannot diagnose or recover — it can only retry. The agent's world knowledge never reaches the layer where the error happened.</li>
+  <li><strong>A fixed primitive set caps what any amount of experience can buy.</strong> On contact-rich tasks (nut insertion), agents writing programs over the same curated primitives stay near zero however much task-specific experience they accumulate: nothing in the set senses contact, so no program built from it can correct a pose mid-motion.</li>
+  <li><strong>Most reported gains are not zero-shot.</strong> Rehearsing each evaluation task beforehand, carrying a task memory, or reading the benchmark's success predicate at run time are all common — and rarely tabulated. Any comparison in this area needs explicit <em>train / experience / oracle</em> columns.</li>
+  <li><strong>Privileged state and bespoke APIs do not transfer.</strong> Systems that read ground-truth object poses from the simulator, or call a hand-written <code>sample_grasp_pose(obj)</code>, have to be re-engineered for every new embodiment — and the first category cannot run on hardware at all.</li>
+</ol>
+
+<p style="font-size: 0.92em;">The open question this leaves: if the agent is handed the robot's <em>native</em> interface and nothing else, is a frontier coding agent already a zero-shot visuomotor policy? That is the question I am writing a paper about; the numbers stay off this page until it is out of review.</p>
+
+{% assign rua_posts = site.posts | where_exp: "p", "p.series == 'rua'" %}
+{% if rua_posts.size > 0 %}
+<h2>Notes</h2>
+{% for post in rua_posts %}
+  <article class="rsi-entry">
+    <h3 class="rsi-title">{{ post.title }} <span class="rsi-date">{{ post.date | date: "%b %-d, %Y" }}</span></h3>
+    {% if post.meta %}<div class="rsi-meta">{{ post.meta | markdownify }}</div>{% endif %}
+    {% if post.summary %}<p class="rsi-summary">{{ post.summary }}</p>{% endif %}
+    {{ post.content }}
+  </article>
+{% endfor %}
+{% endif %}
+
+<h2 id="reading-list">Reading list</h2>
+
+<p>In writing order. The tag is the family from the table above.</p>
+
+<ul class="rl">
+  <li><span class="tag tag-x">framing</span> <strong>Robot-Use Agents</strong> — Phillip Isola (MIT), Sep 2026 · <a href="https://web.mit.edu/phillipi/www/writing/robot-use-agents.html">essay</a> · names the paradigm: an agent operating a robot the way it operates a computer. The series intro goes here — why robot control is a software problem, and what carries over from computer use and what does not (contact, irreversibility, real time).</li>
+
+  <li><span class="tag">B</span> <strong>Code as Policies</strong> — Liang, Huang, Xia, Xu, Hausman, Ichter, Florence, Zeng (Google), ICRA 2023 · <a href="https://doi.org/10.1109/ICRA48891.2023.10160591">paper</a> · the origin. An LLM writes executable policy code over perception and control primitives; the policy becomes an artifact you can read. Everything in family B is a descendant, and every limitation of family B is already visible here: the primitives are the ceiling.</li>
+
+  <li><span class="tag">B</span> <strong>CaP-X: Benchmarking and Improving Coding Agents for Robot Manipulation</strong> — Fu, Yu, El-Refai, Kou, Xue, Huang, Xiao, Wang, Li, Shi, Wu, Sastry, Zhu, Goldberg, Fan (Berkeley + NVIDIA + Stanford), Mar 2026 · <a href="https://arxiv.org/abs/2603.22435">arxiv</a> · introduces CaP-Bench (lift, stack, wipe, nut, restack, bimanual lift, handover) with human-expert programs as a reference point (82.6%). The single most useful number in the series: the human ceiling, per task.</li>
+
+  <li><span class="tag">B</span> <strong>RHO: Your Coding Agent Is Secretly a Roboticist</strong> — Elmaaroufi, Svegliato, Kalade, Schelle, Seshia, Zaharia (Berkeley), Jun 2026 · <a href="https://arxiv.org/abs/2606.16458">arxiv</a> · a coding agent driving a manipulation stack end to end. Read next to ASPIRE: both accumulate experience on the evaluation tasks, which is where most of the gain over plain CaP comes from.</li>
+
+  <li><span class="tag">B</span> <strong>ASPIRE: Agentic Skill Discovery for Robotics</strong> — Lu, Wu, Kou, Fu, Xiao, Mandlekar, Xu, Shi, Goldberg, Chen, Chowdhury, Zhu, Fan, Wang, Jul 2026 · <a href="https://arxiv.org/abs/2607.00272">arxiv</a> · the L2 analogue: discover and freeze a skill library, then call it. Same compile-once-reuse-forever bargain as SkillDroid in the CLI series, with the same failure mode — the library cannot cover what it never saw.</li>
+
+  <li><span class="tag">A</span> <strong>SayCan</strong> — Ichter, Brohan, Chebotar et al. (Google), CoRL 2022 · <a href="https://proceedings.mlr.press/v205/ichter23a.html">paper</a> · the hierarchical template every family-A system still follows: LLM proposes, affordance-scored skills dispose. Worth re-reading to see exactly which of its assumptions the coding-agent era removes.</li>
+
+  <li><span class="tag">A</span> <strong>Harness VLA: Steering Frozen VLAs via Memory-Guided Agents</strong> — Zhang, Zhang, Gao, Li, Liu et al., Jul 2026 · <a href="https://arxiv.org/abs/2607.08448">arxiv</a> · the strongest agent-over-policy result, and the cleanest illustration of claim 4: it rehearses each evaluation task once and reads the success predicate during execution. On held-out composite tasks it falls back to the underlying policy's ceiling, which is the whole argument against the architecture.</li>
+
+  <li><span class="tag">A</span> <strong>Zetta ζ</strong> — Ding, Mi, Huang, Wang, Zhang et al. (Microsoft Research Asia), Aug 2026 · <a href="https://arxiv.org/abs/2608.16590">arxiv</a> · closed-loop embodied harness with self-evolution; pair with <a href="https://arxiv.org/abs/2607.18060">RoboHarness</a> (memory-driven orchestration of heterogeneous policies) and <a href="https://arxiv.org/abs/2608.09410">Skills in Weights, Memory in Code</a> — three takes on where to put state when the motor skill is frozen.</li>
+
+  <li><span class="tag">C</span> <strong>VIA: Visual Interface Agent for Robot Control</strong> — Hu, Sundaresan, Gao, Sadigh (Stanford), Jul 2026 · <a href="https://arxiv.org/abs/2607.11119">arxiv</a> · the agent acts through a visual interface, issuing poses. The direct test of whether a multimodal model can ground a pixel to a centimetre — and the evidence that it cannot, which is what pushes family D toward self-written geometry.</li>
+
+  <li><span class="tag">C</span> <strong>GUAVA</strong> — Liu, Li, Yao, Shi, Zhou, Huang, Huang, Mao (Maryland + MIT), Jun 2026 · <a href="https://arxiv.org/abs/2606.18363">arxiv</a> · "universal harness for embodied manipulation"; read with <a href="https://arxiv.org/abs/2609.10522">Show-Harness</a> ("just a VLM agent can play robots") and <a href="https://arxiv.org/abs/2609.12541">Agent as Policy</a>. The three of them define what the minimal per-step action interface looks like.</li>
+
+  <li><span class="tag">D</span> <strong>ROSA / ROS-LLM / rosaOS / ROSClaw</strong> — Royce et al. (NASA JPL), Oct 2024 · <a href="https://arxiv.org/abs/2410.06472">arxiv</a> · Mower et al. (Huawei Noah's Ark), Jun 2024 · <a href="https://arxiv.org/abs/2406.19741">arxiv</a> · Ge et al., ACL 2026 demo · Cardenas et al., Mar 2026 · <a href="https://arxiv.org/abs/2603.26997">arxiv</a> · the pre-agentic ROS-LLM lineage: natural language onto ROS 2 topics and services, no code generation, evaluated on in-house demos. They establish the plumbing and leave the question open — the gap this series is about.</li>
+
+  <li><span class="tag tag-x">eval</span> <strong>LIBERO-PRO</strong> — Zhou, Xu, Tie, Chen, Zhang, Chu, Zhou, Sun, Oct 2025 · <a href="https://arxiv.org/abs/2510.03827">arxiv</a> · perturbs objects, spatial layouts, goals and instructions on LIBERO and watches OpenVLA and π<sub>0</sub> go to zero. Companion: <a href="https://arxiv.org/abs/2510.13626">LIBERO-Plus</a> (Fei et al.) and <a href="https://arxiv.org/abs/2603.28301">LIBERO-PARA</a> (paraphrase robustness). Together, the case that VLA leaderboard numbers measure memorisation.</li>
+
+  <li><span class="tag tag-x">eval</span> <strong>Zero-shot has no distribution to fall out of</strong> — my own angle, written last. If a policy was never trained, "seen" versus "unseen" splits stop being a property of the policy and become a property of the baselines. What should replace them: task length, contact richness, and cost per success — and a mandatory disclosure of training, prior experience, and oracle access.</li>
+</ul>
+
+<p class="rl-adjacent"><strong>Adjacent work</strong> — for related-work only.
+<a href="https://arxiv.org/abs/2604.15483">π<sub>0.7</sub></a> and <a href="https://arxiv.org/abs/2503.14734">GR00T N1</a> (the generalist policies the agent systems sit on top of) ·
+<a href="https://arxiv.org/abs/2602.15922">World Action Models are Zero-Shot Policies</a> (the other route to zero-shot: predict observations and actions jointly) ·
+<a href="https://arxiv.org/abs/2603.04466">Act-Observe-Rewrite</a> (multimodal coding agents as in-context policy learners) ·
+<a href="https://arxiv.org/abs/2601.20334">Demonstration-Free Robotic Control via LLM Agents</a> ·
+<a href="https://arxiv.org/abs/2608.16978">VLCP</a> (closed-loop code replanning) ·
+<a href="https://arxiv.org/abs/2608.18227">Revisiting Push-T with Agentic Robotics</a> ·
+<a href="https://arxiv.org/abs/2607.26148">minimal-interface zero-shot agents for VLN</a> (the navigation counterpart of the same claim) ·
+<a href="https://www.anthropic.com/research/claude-plays-robotics">Claude Plays Robotics</a> and <a href="https://openai.robocurve.org/gpt-6-astra/">GPT-6 Astra on robotic manipulation</a> (vendor reports; no protocol, but the first public evidence).</p>
