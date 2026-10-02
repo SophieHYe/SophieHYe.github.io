@@ -74,7 +74,7 @@ I obtained my PhD from KTH Royal Institute of Technology, where I was fortunate 
 ## News
 
 <div class="news" markdown="1">
-- **2026.07**: 🤗 TerminalWorld dataset exceeded <span style="color:#9b1c1c;font-weight:600">10,000</span> downloads on HuggingFace!
+- **2026.09**: 🤗 TerminalWorld dataset exceeded <span style="color:#9b1c1c;font-weight:600">25,000</span> downloads on HuggingFace!
 - **2026.06**: Organizing the 7th APR workshop at ASE — welcome to submit to [APR@ASE 2026](https://conf.researchr.org/home/ase-2026/apr-2026)!
 - **2026.06**: Happy to receive the FSE 2026 Distinguished Reviewer Award.
 - **2026.06**: Our paper "Agent-based Automated Remediation for Vulnerabilities in Maven Projects" is accepted to OOPSLA 2026. Congrats to Lyuye!
@@ -99,7 +99,7 @@ I obtained my PhD from KTH Royal Institute of Technology, where I was fortunate 
       <a class="badge" href="https://arxiv.org/abs/2605.22535" target="_blank" rel="noopener noreferrer"><span class="k">arXiv</span><span class="v v-arxiv">2605.22535</span></a>
       <a class="badge" href="https://github.com/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span><span class="v v-gh">{{ site.data.projects.terminalworld.github_stars | default: "—" }}</span></a>
       <!-- HuggingFace downloads: hardcoded on purpose (the daily project-stats workflow undercounts it). Edit the number here. -->
-      <a class="badge" href="https://huggingface.co/datasets/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">HuggingFace</span><span class="v v-hf">14612</span></a>
+      <a class="badge" href="https://huggingface.co/datasets/EuniAI/TerminalWorld" target="_blank" rel="noopener noreferrer"><span class="k">HuggingFace</span><span class="v v-hf">25100</span></a>
       <a class="badge" href="https://terminalworld.ai" target="_blank" rel="noopener noreferrer"><span class="k">Website</span><span class="v v-web">terminalworld.ai</span></a>
     </div>
     <div class="project__featured">🎙️ TerminalWorld was featured on <a href="https://lastweekin.ai/p/lwiai-podcast-246-gemini-35-omni" target="_blank" rel="noopener noreferrer">Last Week in AI</a> (ep. #246).</div>
