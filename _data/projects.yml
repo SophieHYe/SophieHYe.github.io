@@ -5,6 +5,6 @@ contextbench:
 prometheus:
   github_stars: 1134
 terminalworld:
-  github_stars: 50
-  hf_downloads: 10249
-updated: '2026-10-19'
+  github_stars: 51
+  hf_downloads: 9853
+updated: '2026-10-20'
